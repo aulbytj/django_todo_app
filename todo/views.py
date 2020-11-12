@@ -1,9 +1,10 @@
 from django.shortcuts import render
+from .models import Todo
 
 # Create your views here.
 
 
-#  CRUD 
+#  CRUD CREATE READ UPDATE DELETE
 
 
 
@@ -12,7 +13,10 @@ from django.shortcuts import render
 
 
 # READ VIEW
-
+def todo_list(request):
+  todos = Todo.objects.all()
+  context = {'todos': todos}
+  return render(request, 'todo/todo_list.html', context)
 
 
 # UPDATE VIEW
